@@ -91,3 +91,15 @@ The application itself does **not** need changing for track sharing.
 - The résumé is a normal PDF asset rather than Base64 embedded in the HTML.
 - CSS and JavaScript are external files for maintainability and browser caching.
 - The Interactive System Lab remains entirely client-side.
+
+
+## Browser cache during active development
+
+CSS and JavaScript are configured with `must-revalidate` so browsers do not keep an older interface after a Cloudflare redeploy. This is intentional while the portfolio is still being iterated on.
+
+The current production references are:
+
+- `css/styles.v5.css`
+- `js/app.v5.js`
+
+If you later switch to fingerprinted build assets, those can safely use long immutable caching.
