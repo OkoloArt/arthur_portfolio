@@ -64,15 +64,15 @@ The portfolio supports:
 
 The "Copy Backend link" / "Copy Android link" button builds the URL from the live deployment automatically, so it does not need a hardcoded deployment hostname.
 
-## Before attaching a custom domain
+## Current production URL
 
 The current canonical/SEO URL is:
 
 ```text
-https://okoloart.github.io/
+https://portfolio.okoloarthur4.workers.dev/
 ```
 
-When a custom domain is connected, update that URL in these places:
+The current production metadata is configured for this URL. If you later connect a custom domain, update it in these places:
 
 - `index.html` canonical link
 - `index.html` `og:url`

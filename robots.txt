@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://okoloart.github.io/sitemap.xml
+Sitemap: https://portfolio.okoloarthur4.workers.dev/sitemap.xml

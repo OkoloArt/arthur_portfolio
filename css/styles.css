@@ -2532,3 +2532,13 @@ body[data-track="android"] #work{
 .contact-anchor{padding:0!important;height:0;overflow:hidden}.sr-contact{position:absolute;left:-9999px}
 @media(max-width:1050px){.compact-case summary{grid-template-columns:minmax(0,1fr) auto 2rem}.case-tags{grid-column:1/-1}.compact-case .meta{align-items:flex-start;text-align:left}.showcase-body{grid-template-columns:1fr 1fr}.showcase-visual,.android-visual{grid-column:1/-1}.modern-toolbox{grid-template-columns:repeat(2,1fr)!important}.work-principles{grid-template-columns:repeat(3,1fr)}.closing-strip{grid-template-columns:1fr}.closing-actions{justify-content:flex-start}}
 @media(max-width:700px){.compact-case summary{grid-template-columns:1fr 2rem}.case-tags,.compact-case .meta{grid-column:1}.showcase-body,.showcase-body.simple{grid-template-columns:1fr}.showcase-tech{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:.8rem}.modern-toolbox{grid-template-columns:1fr!important}.work-principles{grid-template-columns:1fr}}
+
+
+/* Mobile PDF handling:
+   use the browser's native PDF viewer instead of an iframe so multi-page
+   resumes remain fully scrollable on iOS/Android browsers. */
+@media (max-width:700px){
+  #preview{
+    display:none !important;
+  }
+}

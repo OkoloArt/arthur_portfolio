@@ -673,11 +673,18 @@
 
   async function run(){
     var id = ++runId, s = sims[current], btn = $('#run');
+    var isRerun = btn && btn.textContent.trim() === 'Run again';
+
     if(isMobileLab()){
       setLabView('events');
-      if(s.kind === 'Android') setEventView('stream');
+      if(s.kind === 'Android') setEventView(isRerun ? 'preview' : 'stream');
     }
-    if(isTabletLab()) setTabletView('observe');
+
+    if(isTabletLab()){
+      setTabletView('observe');
+      if(s.kind === 'Android' && isRerun) setEventView('preview');
+    }
+
     btn.disabled = true; btn.textContent = 'Running';
     gate = null; gated = false; $('#next').disabled = true;
     logEl.innerHTML = ''; clock = 0;
@@ -747,11 +754,11 @@
     backend:{ h1:'I build backend systems products depend on.',
       sub:'Backend engineer in Lagos with 3.7 years of production experience across payments, authentication, RBAC, compliance, background jobs, admin systems and production APIs in NestJS, TypeScript and PostgreSQL.',
       years:'3.7 years', yearsSub:'Backend production experience',
-      cta:'See production work', href:'#work', workH:'Backend work in production', andH:'Android work in production', contact:'Open to backend engineering roles' },
+      cta:'See production work', href:'#work', workH:'Backend work', andH:'Android work', contact:'Open to backend engineering roles' },
     android:{ h1:'I build Android products people depend on.',
       sub:'Android engineer in Lagos with 2 years of production experience building booking, search, notifications, onboarding, payments, identity verification and ride-hailing flows in Kotlin and Jetpack Compose.',
       years:'2 years', yearsSub:'Android production experience',
-      cta:'See Android work', href:'#android', workH:'Backend work in production', andH:'Android work in production', contact:'Open to Android engineering roles' }
+      cta:'See Android work', href:'#android', workH:'Backend work', andH:'Android work', contact:'Open to Android engineering roles' }
   };
   var stackEl = document.querySelector('#stack dl'), backendStack = stackEl.innerHTML;
   var androidStack = '<div><dt>Languages and UI</dt><dd>Kotlin, Java, Jetpack Compose, XML, Material Design</dd></div>' +
@@ -856,15 +863,46 @@
     });
   });
 
-  /* resume preview */
+  /* resume preview
+     Mobile browsers (especially iOS Safari) can render only the first page
+     of an embedded PDF iframe. On mobile, open the PDF in the browser's
+     native document viewer so all pages remain scrollable. Desktop/tablet
+     keep the inline portfolio preview. */
   var pBtn = $('#toggle-preview'), pBox = $('#preview'), frame = pBox.querySelector('iframe');
+  var resumeUrl = frame ? frame.dataset.src : 'assets/Arthur_Okolo_CV.pdf';
+
+  function isMobileResumePreview(){
+    return window.matchMedia('(max-width: 700px)').matches;
+  }
+
+  function syncResumePreviewButton(){
+    if(!pBtn) return;
+    if(isMobileResumePreview()){
+      pBtn.textContent = 'Open resume';
+      pBtn.setAttribute('aria-expanded', 'false');
+      pBtn.setAttribute('aria-label', 'Open full resume');
+    } else {
+      var show = pBox.classList.contains('show');
+      pBtn.textContent = show ? 'Hide preview' : 'Preview here';
+      pBtn.setAttribute('aria-expanded', String(show));
+      pBtn.setAttribute('aria-label', pBtn.textContent);
+    }
+  }
+
   pBtn.addEventListener('click', function(){
+    if(isMobileResumePreview()){
+      window.open(resumeUrl, '_blank', 'noopener');
+      return;
+    }
+
     var show = !pBox.classList.contains('show');
-    if (show && !frame.src) frame.src = frame.dataset.src;
+    if (show && !frame.src) frame.src = resumeUrl;
     pBox.classList.toggle('show', show);
-    pBtn.setAttribute('aria-expanded', String(show));
-    pBtn.textContent = show ? 'Hide preview' : 'Preview here';
+    syncResumePreviewButton();
   });
+
+  window.addEventListener('resize', syncResumePreviewButton);
+  syncResumePreviewButton();
 
   /* copy email */
   var email = 'arthurokolo97@gmail.com', msg = $('#copy-msg');
