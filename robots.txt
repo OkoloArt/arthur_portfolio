@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://okoloart.github.io/sitemap.xml
