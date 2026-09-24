@@ -864,12 +864,11 @@
   });
 
   /* resume preview
-     Mobile browsers (especially iOS Safari) can render only the first page
-     of an embedded PDF iframe. On mobile, open the PDF in the browser's
-     native document viewer so all pages remain scrollable. Desktop/tablet
-     keep the inline portfolio preview. */
+     Mobile Chrome/Safari can expose only the first page of an embedded PDF.
+     On small screens we therefore render the resume as normal page images
+     inside the portfolio. Desktop/tablet keep the PDF iframe preview. */
   var pBtn = $('#toggle-preview'), pBox = $('#preview'), frame = pBox.querySelector('iframe');
-  var resumeUrl = frame ? frame.dataset.src : 'assets/Arthur_Okolo_CV.pdf';
+  var mobileResume = $('#mobile-resume-preview');
 
   function isMobileResumePreview(){
     return window.matchMedia('(max-width: 700px)').matches;
@@ -877,26 +876,37 @@
 
   function syncResumePreviewButton(){
     if(!pBtn) return;
+
     if(isMobileResumePreview()){
-      pBtn.textContent = 'Open resume';
-      pBtn.setAttribute('aria-expanded', 'false');
-      pBtn.setAttribute('aria-label', 'Open full resume');
+      var mobileOpen = mobileResume && !mobileResume.hidden;
+      pBtn.textContent = mobileOpen ? 'Hide resume' : 'Preview resume';
+      pBtn.setAttribute('aria-expanded', String(mobileOpen));
+      pBtn.setAttribute('aria-controls', 'mobile-resume-preview');
+      pBtn.setAttribute('aria-label', pBtn.textContent);
+      pBox.classList.remove('show');
     } else {
+      if(mobileResume) mobileResume.hidden = true;
       var show = pBox.classList.contains('show');
       pBtn.textContent = show ? 'Hide preview' : 'Preview here';
       pBtn.setAttribute('aria-expanded', String(show));
+      pBtn.setAttribute('aria-controls', 'preview');
       pBtn.setAttribute('aria-label', pBtn.textContent);
     }
   }
 
   pBtn.addEventListener('click', function(){
     if(isMobileResumePreview()){
-      window.open(resumeUrl, '_blank', 'noopener');
+      var showMobile = mobileResume.hidden;
+      mobileResume.hidden = !showMobile;
+      if(showMobile){
+        mobileResume.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+      }
+      syncResumePreviewButton();
       return;
     }
 
     var show = !pBox.classList.contains('show');
-    if (show && !frame.src) frame.src = resumeUrl;
+    if (show && !frame.src) frame.src = frame.dataset.src;
     pBox.classList.toggle('show', show);
     syncResumePreviewButton();
   });

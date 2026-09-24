@@ -2534,11 +2534,38 @@ body[data-track="android"] #work{
 @media(max-width:700px){.compact-case summary{grid-template-columns:1fr 2rem}.case-tags,.compact-case .meta{grid-column:1}.showcase-body,.showcase-body.simple{grid-template-columns:1fr}.showcase-tech{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:.8rem}.modern-toolbox{grid-template-columns:1fr!important}.work-principles{grid-template-columns:1fr}}
 
 
-/* Mobile PDF handling:
-   use the browser's native PDF viewer instead of an iframe so multi-page
-   resumes remain fully scrollable on iOS/Android browsers. */
+/* Mobile resume preview:
+   render each PDF page as an image so Chrome/Safari reliably show all pages. */
+.mobile-resume-preview{
+  display:none;
+}
+
 @media (max-width:700px){
   #preview{
     display:none !important;
+  }
+
+  .mobile-resume-preview{
+    display:block;
+    margin-top:1rem;
+  }
+
+  .mobile-resume-preview[hidden]{
+    display:none !important;
+  }
+
+  .mobile-resume-pages{
+    display:grid;
+    gap:.85rem;
+  }
+
+  .mobile-resume-pages img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid var(--rule);
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
   }
 }
