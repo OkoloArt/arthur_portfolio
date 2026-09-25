@@ -819,6 +819,11 @@
       shareBtn.textContent = track === 'android' ? 'Copy Android link' : 'Copy Backend link';
       shareBtn.setAttribute('aria-label', shareBtn.textContent);
     }
+
+    var featuredAllLink = $('#featured-all-link');
+    if(featuredAllLink){
+      featuredAllLink.setAttribute('href', track === 'android' ? '#android' : '#work');
+    }
   }
   function setTrack(t){
     if (t === track) return;

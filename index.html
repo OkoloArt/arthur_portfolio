@@ -51,7 +51,7 @@
 
 
 
-<link href="css/styles.v8.css" rel="stylesheet"/><link href="site.webmanifest" rel="manifest"/></head>
+<link href="css/styles.v9.css" rel="stylesheet"/><link href="site.webmanifest" rel="manifest"/></head>
 <body>
 <a class="skip" href="#work">Skip to work</a>
 <header class="nav">
@@ -155,42 +155,47 @@
 <section class="featured" id="featured">
 <div class="wrap">
 <div class="section-kicker">Featured work</div>
-<div class="feature-head"><h2>Selected Production Work</h2><a href="#work">View all work →</a></div>
+<div class="feature-head"><h2>Selected Production Work</h2><a id="featured-all-link" href="#work">View all work →</a></div>
 <div class="feature-grid">
-<a class="feature-card" data-jump="Renegan" href="#work">
+
+<a class="feature-card feature-backend" data-jump="Renegan" href="#work">
 <div class="feature-copy"><div class="feature-title"><span class="feature-logo">R</span><b>Renegan</b><span>Fintech</span></div><p>Payments, recurring billing, AML screening, RBAC and background processing. Built with NestJS, TypeScript and PostgreSQL.</p></div>
 <div class="feature-art payments-art">
 <div aria-hidden="true" class="renegan-mini-flow">
-<div class="renegan-payment">
-<span class="renegan-card-icon">▤</span>
-<span><small>Payment</small><b>₦250k</b></span>
-</div>
+<div class="renegan-payment"><span class="renegan-card-icon">▤</span><span><small>Payment</small><b>₦250k</b></span></div>
 <div class="renegan-flow-line"></div>
-<div class="renegan-checks">
-<span><i>✓</i>RBAC</span>
-<span><i>✓</i>AML</span>
-</div>
+<div class="renegan-checks"><span><i>✓</i>RBAC</span><span><i>✓</i>AML</span></div>
 <div class="renegan-flow-line short"></div>
-<div class="renegan-provider">
-<small>Provider</small>
-<b>Flutterwave</b>
-</div>
+<div class="renegan-provider"><small>Provider</small><b>Flutterwave</b></div>
 <div class="renegan-flow-line short"></div>
-<div class="renegan-done">
-<span>✓</span>
-<small>Processed</small>
-</div>
+<div class="renegan-done"><span>✓</span><small>Processed</small></div>
 </div>
 </div>
 </a>
-<a class="feature-card" data-jump="Gopaddi" href="#android">
+
+<a class="feature-card feature-backend blocktremp-feature" data-jump="BlockTremp" href="#work">
+<div class="feature-copy"><div class="feature-title"><span class="feature-logo dark">B</span><b>BlockTremp</b><span>EdTech</span></div><p>Online learning platform systems spanning course recommendations, reminders, subscriptions, account security and real-time admin analytics.</p></div>
+<div class="feature-art blocktremp-art" aria-hidden="true">
+<div class="course-shell">
+<div class="course-top"><span>Learning</span><small>My courses</small></div>
+<div class="course-progress"><b>Backend Fundamentals</b><span><i></i></span><small>72% complete</small></div>
+<div class="course-row"><span>Recommended</span><strong>API Design</strong></div>
+<div class="course-row"><span>Reminder</span><strong>Continue lesson →</strong></div>
+<div class="course-foot"><span>2FA ✓</span><span>Subscription active</span></div>
+</div>
+</div>
+</a>
+
+<a class="feature-card feature-android" data-jump="Gopaddi" href="#android">
 <div class="feature-copy"><div class="feature-title"><span class="feature-logo violet">G</span><b>Gopaddi</b><span>Travel</span></div><p>AI-powered bookings, search, notifications, identity verification and multi-currency payout flows in Kotlin and Jetpack Compose.</p></div>
 <div class="feature-art"><div class="phone-art trips"><b>Explore &amp; book</b><small>PaddiAI · Travel</small><div>Hotel <strong>View</strong></div><div>Restaurant <strong>Book</strong></div><div>Package <strong>Open</strong></div></div></div>
 </a>
-<a class="feature-card" data-jump="Simpliride" href="#android">
+
+<a class="feature-card feature-android" data-jump="Simpliride" href="#android">
 <div class="feature-copy"><div class="feature-title"><span class="feature-logo blue">S</span><b>Simpliride</b><span>Transport</span></div><p>Ride reliability, payments, subscriptions, referrals and production crash resolution on Android.</p></div>
 <div class="feature-art"><div class="phone-art"><div class="route"></div><div class="eta">3 min<br/><small>Driver arriving</small></div></div></div>
 </a>
+
 </div>
 <div class="quick-cap">
 <div><div class="section-kicker">Core capabilities</div><strong>Tools, technologies and domains I work with.</strong></div>
@@ -352,5 +357,5 @@
 <footer><div class="wrap"></div></footer>
 
 
-<script defer="" src="js/app.v8.js"></script></body>
+<script defer="" src="js/app.v9.js"></script></body>
 </html>

@@ -2601,3 +2601,113 @@ body[data-track="android"] #work{
   }
 }
 
+
+/* ===== track-specific-featured-work ===== */
+#featured .feature-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+body[data-track="backend"] #featured .feature-android{
+  display:none;
+}
+body[data-track="android"] #featured .feature-backend{
+  display:none;
+}
+
+/* BlockTremp: online-learning product visual. */
+.blocktremp-art{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:.75rem;
+  background:
+    radial-gradient(circle at 20% 15%,color-mix(in srgb,var(--blue) 10%,transparent),transparent 48%),
+    var(--panel2);
+}
+.course-shell{
+  width:min(100%,245px);
+  border:1px solid var(--rule);
+  border-radius:14px;
+  padding:.72rem;
+  background:var(--panel);
+  box-shadow:0 10px 28px rgba(0,0,0,.08);
+}
+.course-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:.65rem;
+}
+.course-top span{
+  font:700 .66rem var(--display);
+}
+.course-top small{
+  font-size:.48rem;
+  color:var(--muted);
+}
+.course-progress{
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:.58rem;
+  margin-bottom:.45rem;
+}
+.course-progress b{
+  display:block;
+  font-size:.56rem;
+  margin-bottom:.36rem;
+}
+.course-progress>span{
+  display:block;
+  height:5px;
+  border-radius:999px;
+  background:var(--rule);
+  overflow:hidden;
+}
+.course-progress>span i{
+  display:block;
+  width:72%;
+  height:100%;
+  background:var(--blue);
+  border-radius:inherit;
+}
+.course-progress small{
+  display:block;
+  margin-top:.3rem;
+  font-size:.45rem;
+  color:var(--muted);
+}
+.course-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  padding:.42rem .12rem;
+  border-bottom:1px solid var(--rule);
+}
+.course-row span{
+  font-size:.46rem;
+  color:var(--muted);
+}
+.course-row strong{
+  font-size:.5rem;
+}
+.course-foot{
+  display:flex;
+  gap:.32rem;
+  flex-wrap:wrap;
+  padding-top:.5rem;
+}
+.course-foot span{
+  font-size:.42rem;
+  border:1px solid var(--rule);
+  border-radius:999px;
+  padding:.26rem .38rem;
+  color:var(--muted);
+}
+
+@media(max-width:760px){
+  #featured .feature-grid{
+    grid-template-columns:1fr;
+  }
+}
+
