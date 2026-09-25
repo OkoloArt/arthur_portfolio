@@ -2711,3 +2711,335 @@ body[data-track="android"] #featured .feature-backend{
   }
 }
 
+
+
+/* ===== v10-live-system-lab-shell-and-responsive-fixes ===== */
+
+/* Refined Android phone shell. Existing phone content/state markup is untouched. */
+.phone{
+  position:relative;
+  border:0 !important;
+  border-radius:40px !important;
+  background:linear-gradient(180deg,#03110d 0%,#072118 100%) !important;
+  padding:5px !important;
+  box-shadow:
+    0 16px 26px rgba(0,0,0,.12),
+    0 6px 14px rgba(3,20,15,.10),
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    inset 0 -8px 14px rgba(255,255,255,.02),
+    0 0 0 1px rgba(3,20,15,.06) !important;
+}
+.phone::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border-radius:33px;
+  background:var(--panel);
+  box-shadow:inset 0 0 0 1px rgba(11,23,18,.08),0 1px 0 rgba(255,255,255,.6);
+  z-index:0;
+}
+.phone::after{
+  content:"";
+  position:absolute;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:62px;
+  height:12px;
+  border-radius:999px;
+  background:#090c0b;
+  z-index:4;
+}
+.phone .ph-bar{
+  height:1.78rem !important;
+  background:transparent !important;
+  position:relative;
+  z-index:3;
+  margin:0;
+}
+.phone .ph-bar::before{
+  content:"9:41";
+  position:absolute;
+  left:.78rem;
+  top:.58rem;
+  font:600 .62rem/1 var(--body);
+  color:#758078;
+}
+.phone .ph-bar::after{
+  content:"";
+  position:absolute;
+  right:.76rem;
+  top:.72rem;
+  width:.28rem;
+  height:.28rem;
+  border-radius:50%;
+  background:#7c867f;
+  box-shadow:-.52rem 0 0 #7c867f,-1.04rem 0 0 #7c867f;
+}
+.phone .ph-screen{
+  position:relative;
+  z-index:3;
+  background:transparent !important;
+  padding:.32rem .68rem .9rem !important;
+  gap:.46rem;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+.phone .ph-screen h4{margin:.08rem 0 .15rem;font-size:.92rem}
+.phone .ph-screen>*{position:relative;z-index:1}
+.phone #ph-lines{display:flex;flex-direction:column;min-height:0;flex:1}
+.phone .mobile-ui,.phone .ride-ui,.phone .verify-shell{min-height:0}
+.phone .mobile-brand{font-size:.8rem}
+.phone .mobile-avatar{width:1.38rem;height:1.38rem;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.phone .mobile-search{font-size:.58rem;padding:.42rem .56rem}
+.phone .mobile-chips{gap:.24rem}
+.phone .mobile-chips span{font-size:.45rem;padding:.2rem .34rem}
+.phone .mobile-card{border-radius:11px;padding:.46rem .5rem}
+.phone .mobile-card h5{font-size:.62rem;margin-bottom:.14rem}
+.phone .mobile-card p{font-size:.485rem;line-height:1.34}
+.phone .mobile-row strong{font-size:.55rem}
+.phone .mobile-row small{font-size:.465rem}
+.phone .mobile-option{grid-template-columns:2rem 1fr auto;padding:.34rem;gap:.36rem}
+.phone .mobile-thumb{width:2rem;height:2rem}
+.phone .mobile-option b{font-size:.54rem}
+.phone .mobile-option small{font-size:.44rem}
+.phone .mobile-option em{font-size:.46rem}
+.phone .mobile-hero{min-height:4.8rem;padding:.58rem}
+.phone .mobile-hero b{font-size:.66rem}
+.phone .mobile-hero small{font-size:.46rem}
+.phone .mobile-status{font-size:.46rem;padding:.22rem .34rem}
+.phone .mobile-bottomnav{padding-top:.48rem;padding-bottom:.02rem}
+.phone .mobile-bottomnav span{font-size:.42rem}
+.phone .ride-ui{gap:.38rem}
+.phone .ride-map{min-height:7.9rem;border-radius:11px}
+.phone .ride-car{font-size:.92rem}
+.phone .eta-bubble{font-size:.46rem;padding:.28rem .38rem}
+.phone .ride-points,.phone .driver-card,.phone .fare-card,.phone .payment-option{border-radius:9px}
+.phone .ride-point{font-size:.49rem}
+.phone .driver-card b{font-size:.53rem}
+.phone .driver-card small{font-size:.43rem}
+.phone .fare-card b{font-size:.6rem}
+.phone .fare-card span,.phone .wallet-card small,.phone .wallet-card p,.phone .payment-option{font-size:.47rem}
+.phone .wallet-card{padding:.56rem;border-radius:11px}
+.phone .wallet-card strong{font-size:.9rem}
+.phone .verify-shell{gap:.42rem}
+.phone .verify-hero,.phone .doc-preview,.phone .payout-success,.phone .payout-account{border-radius:11px}
+.phone .verify-hero{padding:.54rem}
+.phone .verify-head{gap:.4rem;margin-bottom:.28rem}
+.phone .verify-icon{width:1.8rem;height:1.8rem;border-radius:.55rem}
+.phone .verify-head b{font-size:.62rem}
+.phone .verify-head small{font-size:.45rem}
+.phone .doc-preview{height:6.45rem}
+.phone .verify-step{font-size:.48rem;gap:.34rem}
+.phone .verify-step i{width:1.08rem;height:1.08rem}
+.phone .verify-step small{font-size:.42rem}
+.phone .bank-form{gap:.36rem}
+.phone .bank-field{padding:.38rem .45rem;border-radius:8px}
+.phone .bank-field label{font-size:.4rem}
+.phone .bank-field b{font-size:.54rem}
+.phone .currency-badge{font-size:.44rem;padding:.22rem .34rem}
+.phone .payout-success{padding:.62rem}
+.phone .payout-success .check{width:1.72rem;height:1.72rem;margin-bottom:.38rem}
+.phone .payout-success b{font-size:.66rem}
+.phone .payout-success small{font-size:.45rem;line-height:1.35}
+.phone .payout-account{padding:.44rem}
+
+/* Desktop: phone and event stream stay separate and the stream gets remaining width. */
+@media (min-width:1280px){
+  #panel.android-layout .log-wrap .mid:has(.phone:not([hidden])){
+    display:grid !important;
+    grid-template-columns:178px minmax(0,1fr) !important;
+    gap:24px !important;
+    align-items:stretch !important;
+    min-width:0;
+  }
+  #panel.android-layout .log-wrap .phone{
+    width:178px !important;
+    min-width:178px !important;
+    max-width:178px !important;
+    margin:0 !important;
+  }
+  #panel.android-layout .log-wrap .log{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+  }
+}
+
+/* Tablet / compact-desktop Build-Observe mode: 761–1279px. */
+@media (min-width:1100px) and (max-width:1279px){
+  #panel{grid-template-columns:1fr 1fr !important}
+  .lab-tablet-nav{
+    grid-column:1/-1;
+    display:flex !important;
+    gap:.35rem;
+    padding:.65rem .8rem;
+    border-bottom:1px solid var(--rule);
+    background:var(--panel2);
+  }
+  .lab-tablet-nav button{
+    flex:1;
+    border:1px solid var(--rule);
+    border-radius:9px;
+    background:var(--panel);
+    color:var(--muted);
+    padding:.58rem .7rem;
+    font:600 .72rem var(--body);
+    cursor:pointer;
+  }
+  .lab-tablet-nav button[aria-pressed="true"]{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+  #panel[data-tablet-view="build"] .controls-column,
+  #panel[data-tablet-view="build"] .pipe-column{display:block !important}
+  #panel[data-tablet-view="build"] .log-wrap{display:none !important}
+  #panel[data-tablet-view="observe"] .controls-column,
+  #panel[data-tablet-view="observe"] .pipe-column{display:none !important}
+  #panel[data-tablet-view="observe"] .log-wrap{
+    display:flex !important;
+    grid-column:1/-1 !important;
+    border-top:0;
+  }
+}
+
+/* All tab-mode Observe widths: force phone + stream side-by-side and override older <=860 stacking. */
+@media (min-width:761px) and (max-width:1279px){
+  #panel[data-tablet-view="observe"].android-layout .log-wrap .mid:has(.phone:not([hidden])){
+    display:grid !important;
+    grid-template-columns:180px minmax(0,1fr) !important;
+    gap:24px !important;
+    align-items:stretch !important;
+    min-width:0 !important;
+  }
+  #panel[data-tablet-view="observe"].android-layout .log-wrap .phone{
+    width:180px !important;
+    min-width:180px !important;
+    max-width:180px !important;
+    margin:0 !important;
+    align-self:stretch !important;
+  }
+  #panel[data-tablet-view="observe"].android-layout .log-wrap .log{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    align-self:stretch !important;
+  }
+  #panel[data-tablet-view="observe"].android-layout .phone .ph-screen{
+    padding-left:.58rem !important;
+    padding-right:.58rem !important;
+  }
+
+  /* Build mode pipeline fills the available vertical space. */
+  #panel .pipe-column{display:flex !important;flex-direction:column}
+  #panel .pipe-column .pipe{
+    flex:1 1 auto;
+    min-height:100%;
+    display:flex !important;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  #panel .pipe-column .node{
+    flex:1 1 0;
+    display:grid;
+    align-content:start;
+    padding-bottom:.35rem;
+  }
+  #panel .pipe-column .node:last-child{padding-bottom:0}
+}
+
+/* Mobile keeps the refined shell but remains one lab view at a time. */
+@media (max-width:760px){
+  .phone{width:228px !important;margin:1rem auto !important}
+  .log-wrap .phone{width:228px !important;flex:none !important}
+}
+
+
+/* ===== v11-dark-lab-contrast-refinement ===== */
+/* Dark mode: make the Android device shell read as real hardware and
+   lift the event stream off the surrounding lab surface. */
+:root[data-theme="dark"] .phone{
+  background:#FFFFFF !important;
+  box-shadow:
+    0 16px 28px rgba(0,0,0,.34),
+    0 6px 16px rgba(0,0,0,.22),
+    inset 0 0 0 1px rgba(255,255,255,.96),
+    0 0 0 1px rgba(255,255,255,.72) !important;
+}
+
+:root[data-theme="dark"] .phone::before{
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.12),
+    0 1px 0 rgba(255,255,255,.10);
+}
+
+/* Event stream: slightly lighter/elevated than the surrounding dark panel,
+   with a restrained border so the console remains distinct without becoming black-on-black. */
+:root[data-theme="dark"] .log-wrap .log{
+  background:#10231A !important;
+  border:1px solid #2F4B3C !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 8px 20px rgba(0,0,0,.12);
+}
+
+:root[data-theme="dark"] .log-wrap .log time{
+  color:#82988B;
+}
+
+:root[data-theme="dark"] .log-wrap .log .tag{
+  color:#58D990;
+}
+
+:root[data-theme="dark"] .log-wrap .log .msg{
+  color:#DDE8E1;
+}
+
+
+/* ===== v12-phone-size-normalization ===== */
+/* Keep the Android device dimensions identical in light and dark themes.
+   Only shell color/contrast changes by theme. */
+@media (min-width:1280px){
+  #panel.android-layout .log-wrap .mid:has(.phone:not([hidden])){
+    grid-template-columns:168px minmax(0,1fr) !important;
+  }
+  #panel.android-layout .log-wrap .phone{
+    width:168px !important;
+    min-width:168px !important;
+    max-width:168px !important;
+    flex-basis:168px !important;
+  }
+}
+
+@media (min-width:761px) and (max-width:1279px){
+  #panel[data-tablet-view="observe"].android-layout .log-wrap .mid:has(.phone:not([hidden])){
+    grid-template-columns:170px minmax(0,1fr) !important;
+  }
+  #panel[data-tablet-view="observe"].android-layout .log-wrap .phone{
+    width:170px !important;
+    min-width:170px !important;
+    max-width:170px !important;
+    flex-basis:170px !important;
+  }
+}
+
+@media (max-width:760px){
+  .phone,
+  .log-wrap .phone{
+    width:216px !important;
+    min-width:216px !important;
+    max-width:216px !important;
+    flex-basis:216px !important;
+  }
+}
+
+/* Explicitly lock shell geometry so light and dark modes are identical in size. */
+:root[data-theme="light"] .phone,
+:root[data-theme="dark"] .phone{
+  border-radius:40px !important;
+  padding:5px !important;
+}

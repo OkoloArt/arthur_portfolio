@@ -15,7 +15,7 @@
   var nodes = [], clock = 0, runId = 0, current = 0;
 
   function isMobileLab(){ return window.matchMedia('(max-width:760px)').matches; }
-  function isTabletLab(){ return window.matchMedia('(min-width:761px) and (max-width:1099px)').matches; }
+  function isTabletLab(){ return window.matchMedia('(min-width:761px) and (max-width:1279px)').matches; }
 
   function setLabView(view){
     var p=$('#panel'); if(!p) return;
@@ -742,11 +742,8 @@
     renderTabs(); renderSim();
     if (focus) document.getElementById('tab-' + sims[i].id).focus();
 
-    /* Desktop keeps the immediate live-demo behavior.
-       Tablet/mobile stay on Build/Configure until the user explicitly runs it. */
-    if(!isMobileLab() && !isTabletLab()){
-      setTimeout(run, 250);
-    }
+    /* Role/project switches never auto-run.
+       Every viewport waits for an explicit Run. */
   }
 
   controls.addEventListener('click', function(e){
@@ -831,12 +828,8 @@
     current = sims.findIndex(function(s){ return s.kind.toLowerCase() === t; });
     applyTrack(); renderTabs(); renderSim();
 
-    /* Mirror the no-auto-run behavior for first role in each track on tablet/mobile.
-       Desktop can still autoplay the live demo; tablet/mobile must stay on Build/Configure
-       until the user explicitly clicks Run. */
-    if(!isMobileLab() && !isTabletLab()){
-      setTimeout(run, 250);
-    }
+    /* Track switches never auto-run on desktop, tablet, or mobile.
+       The newly selected role waits for an explicit Run. */
     try { history.replaceState(null, '', '?track=' + t + location.hash); } catch (e) {}
   }
   Array.prototype.forEach.call(document.querySelectorAll('.trk'), function(b){ b.addEventListener('click', function(){ setTrack(b.dataset.track); }); });
