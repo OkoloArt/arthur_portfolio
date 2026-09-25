@@ -590,6 +590,7 @@
     $('#sim-name').textContent = s.title; $('#sim-blurb').textContent = s.blurb;
     $('#case-link').textContent = 'Read how I built this at ' + (s.case || s.label);
     $('#panel').setAttribute('aria-labelledby', 'tab-' + s.id);
+    $('#panel').dataset.simId = s.id;
     $('#panel').classList.toggle('android-layout', s.kind === 'Android');
     setLabView('configure');
     setTabletView('build');

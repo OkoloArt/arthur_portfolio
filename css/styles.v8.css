@@ -2569,3 +2569,35 @@ body[data-track="android"] #work{
     box-shadow:0 10px 30px rgba(0,0,0,.18);
   }
 }
+
+
+/* ===== compact-short-backend-labs ===== */
+/*
+   BlockTremp, Gemspread and AgroShop have substantially shorter event streams
+   than Renegan. Their desktop event console is intentionally shorter so the
+   overall three-column lab does not inherit unnecessary vertical space.
+   This also tightens the Configure column and pipeline stage spacing.
+*/
+@media (min-width:1100px){
+  #panel[data-sim-id="blocktremp"] .log-wrap,
+  #panel[data-sim-id="gemspread"] .log-wrap,
+  #panel[data-sim-id="agroshop"] .log-wrap{
+    align-self:start;
+  }
+
+  #panel[data-sim-id="blocktremp"] .log-wrap .mid,
+  #panel[data-sim-id="gemspread"] .log-wrap .mid,
+  #panel[data-sim-id="agroshop"] .log-wrap .mid{
+    flex:0 0 auto;
+  }
+
+  #panel[data-sim-id="blocktremp"] .log-wrap .log,
+  #panel[data-sim-id="gemspread"] .log-wrap .log,
+  #panel[data-sim-id="agroshop"] .log-wrap .log{
+    height:16.5rem;
+    min-height:16.5rem;
+    max-height:16.5rem;
+    flex:0 0 16.5rem;
+  }
+}
+
