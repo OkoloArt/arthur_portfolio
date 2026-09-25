@@ -548,6 +548,8 @@
     }
   }
 
+  var hasRunCurrentSim = false;
+
   var track = 'backend';
   function renderTabs(){
     tabsEl.innerHTML = '';
@@ -584,6 +586,7 @@
 
   function renderSim(){
     var s = sims[current];
+    hasRunCurrentSim = false;
     $('#sim-name').textContent = s.title; $('#sim-blurb').textContent = s.blurb;
     $('#case-link').textContent = 'Read how I built this at ' + (s.case || s.label);
     $('#panel').setAttribute('aria-labelledby', 'tab-' + s.id);
@@ -673,16 +676,21 @@
 
   async function run(){
     var id = ++runId, s = sims[current], btn = $('#run');
-    var isRerun = btn && btn.textContent.trim() === 'Run again';
+    var isRerun = hasRunCurrentSim;
+    hasRunCurrentSim = true;
 
     if(isMobileLab()){
       setLabView('events');
-      if(s.kind === 'Android') setEventView(isRerun ? 'preview' : 'stream');
+      if(s.kind === 'Android'){
+        setEventView('preview');
+      }
     }
 
     if(isTabletLab()){
       setTabletView('observe');
-      if(s.kind === 'Android' && isRerun) setEventView('preview');
+      if(s.kind === 'Android'){
+        setEventView('preview');
+      }
     }
 
     btn.disabled = true; btn.textContent = 'Running';
@@ -717,6 +725,10 @@
       if (id === runId) {
         var b = $('#run'); if (b) { b.disabled = false; b.textContent = 'Run again'; }
         var nb = $('#next'); if (nb) nb.disabled = true; gate = null;
+        if(s.kind === 'Android' && isRerun && (isMobileLab() || isTabletLab())){
+          setEventView('preview');
+        }
+
         var eventsBtn=document.querySelector('.lab-mobile-nav [data-lab-view="events"]');
         if(eventsBtn) eventsBtn.classList.add('has-events');
       }
